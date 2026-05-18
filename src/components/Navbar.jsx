@@ -11,7 +11,9 @@ const Navbar = () => {
         <Image src={Logo} height={150} width={150} alt="logo" />
         <div className="flex gap-8">
           <ul className="flex items-center gap-2 text-xl  text-gray-900">
-            <li>Home</li>
+            <Link href={'/'}>
+              <li>Home</li>
+            </Link>
             <li>Tutor</li>
           </ul>
         </div>
@@ -20,9 +22,11 @@ const Navbar = () => {
           <Link href={'/login'}>
             <Button>Login</Button>
           </Link>
-          <Button variant="secondary" className={'text-black'}>
-            Register
-          </Button>
+          <Link href={'/register'}>
+            <Button variant="secondary" className={'text-black'}>
+              Register
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

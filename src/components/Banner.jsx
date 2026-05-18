@@ -43,7 +43,7 @@ export default function Banner() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#093C5D] text-white py-4">
+    <section className="relative overflow-hidden bg-[#062f49] text-white py-4">
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-[#5DF8D8]/20 blur-3xl " />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
 
