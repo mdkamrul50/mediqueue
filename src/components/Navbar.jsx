@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <div className=" bg-[#3B7597]">
+    <div className=" dark:bg-[#3B7597] bg-[#b8d2bf]" >
       <div className="container mx-auto flex justify-between my-3">
         <Image src={Logo} height={150} width={150} alt="logo" />
         <div className="flex gap-8">
@@ -23,7 +23,10 @@ const Navbar = () => {
             <Button>Login</Button>
           </Link>
           <Link href={'/register'}>
-            <Button variant="secondary" className={'text-black dark:bg-gray-300 dark:text-blue-900'}>
+            <Button
+              variant="secondary"
+              className={'text-black dark:bg-gray-300 dark:text-blue-900'}
+            >
               Register
             </Button>
           </Link>

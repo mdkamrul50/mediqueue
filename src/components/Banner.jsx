@@ -44,13 +44,13 @@ export default function Banner() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#888c95] text-white py-4 dark:bg-[#062f49] ">
+    <section className="relative overflow-hidden bg-[#d0e2d5] text-black dark:text-white py-4 dark:bg-[#062f49] ">
       <ThemeToggle />
 
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-[#5DF8D8]/20 blur-3xl " />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
 
-      <div className="relative mx-auto grid min-h-[90vh] container grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-2">
+      <div className="relative mx-auto grid min-h-[80vh] container grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-2">
         <AnimatePresence mode="wait">
           <motion.div
             key={slides[current].id}
@@ -60,16 +60,18 @@ export default function Banner() {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/40 dark:bg-white/5 px-4 py-2 backdrop-blur-md shadow-2xl">
               <span className="h-2 w-2 rounded-full bg-green-400" />
-              <p className="text-sm text-gray-300">10+ Tutors Available</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                10+ Tutors Available
+              </p>
             </div>
 
             <h1 className="font-playfair text-5xl font-bold leading-tight md:text-6xl">
               {slides[current].title}
             </h1>
 
-            <p className="max-w-xl text-lg leading-relaxed text-gray-300">
+            <p className="max-w-xl text-lg leading-relaxed text-gray-700 dark:text-gray-400">
               {slides[current].description}
             </p>
 
@@ -80,7 +82,7 @@ export default function Banner() {
                 </button>
               </Link>
 
-              <button className="rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-semibold backdrop-blur-md transition-all duration-300 hover:bg-white/10">
+              <button className="rounded-full border border-white/20 bg-white/20  dark:bg-white/5 px-8 py-4 text-sm font-semibold backdrop-blur-md transition-all duration-300 hover:bg-white/10">
                 Become a Tutor
               </button>
             </div>
@@ -160,7 +162,9 @@ export default function Banner() {
             key={slide.id}
             onClick={() => setCurrent(index)}
             className={`h-3 rounded-full transition-all duration-300 ${
-              current === index ? 'w-10 bg-violet-500' : 'w-3 bg-white/30'
+              current === index
+                ? 'w-10 bg-violet-500'
+                : 'w-3 bg-gray-800/30 dark:bg-white/30'
             }`}
           />
         ))}

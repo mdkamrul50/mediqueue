@@ -4,29 +4,27 @@ import { FaUserGraduate, FaCalendarAlt, FaVideo } from 'react-icons/fa';
 
 export default function TutorServices() {
   return (
-    <section className="relative py-30 px-6 bg-[#0F172A] text-white overflow-hidden ">
+    <section className="relative py-30 px-6 bg-[#d0e2d5] dark:bg-[#0F172A] text-white overflow-hidden ">
+      <div className="absolute -top-3 right-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl dark:hidden" />
       <div className="container mx-auto relative z-10">
-     
         <div className="text-center mb-16">
-          <p className="text-[#5DF8D8] font-medium tracking-widest text-sm mb-3">
+          <p className="dark:text-[#5DF8D8] text-[#18ab8d] font-medium tracking-widest text-sm mb-3">
             OUR PLATFORM FEATURES
           </p>
 
-          <h2 className="text-5xl font-bold leading-tight">
+          <h2 className="text-5xl font-bold leading-tight text-black dark:text-white">
             Everything you need for <br />
             smart learning & tutoring
           </h2>
 
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="dark:text-gray-400 text-gray-600 mt-4 max-w-2xl mx-auto">
             A complete tutoring platform where students can find experts, book
             sessions, and learn anytime with ease.
           </p>
         </div>
 
-   
         <div className="grid md:grid-cols-3 gap-8">
-       
-          <div className="p-8 rounded-3xl bg-[#093C5D] hover:bg-[#0F4F78] border border-white/10 transition-all duration-300 hover:-translate-y-2">
+          <div className="p-8 rounded-3xl dark:bg-[#093C5D] bg-[#99BC85] hover:bg-[#0d4a70] border border-white/10 transition-all duration-300 hover:-translate-y-2">
             <div className="w-16 h-16 flex items-center justify-center rounded-2xl mb-6 bg-[#5DF8D8]/10 text-[#5DF8D8]">
               <FaUserGraduate size={30} />
             </div>
@@ -40,8 +38,7 @@ export default function TutorServices() {
             </a>
           </div>
 
-       
-          <div className="p-8 rounded-3xl bg-[#093C5D] hover:bg-[#0F4F78] border border-white/10 transition-all duration-300 hover:-translate-y-2">
+          <div className="p-8 rounded-3xl dark:bg-[#093C5D] bg-[#99BC85] hover:bg-[#0c476b] border border-white/10 transition-all duration-300 hover:-translate-y-2">
             <div className="w-16 h-16 flex items-center justify-center rounded-2xl mb-6 bg-[#5DF8D8]/10 text-[#5DF8D8]">
               <FaCalendarAlt size={30} />
             </div>
@@ -55,8 +52,7 @@ export default function TutorServices() {
             </a>
           </div>
 
-         
-          <div className="p-8 rounded-3xl bg-[#093C5D] hover:bg-[#0F4F78] border border-white/10 transition-all duration-300 hover:-translate-y-2">
+          <div className="p-8 rounded-3xl dark:bg-[#093C5D] bg-[#99BC85] hover:bg-[#0b4468] border border-white/10 transition-all duration-300 hover:-translate-y-2">
             <div className="w-16 h-16 flex items-center justify-center rounded-2xl mb-6 bg-[#5DF8D8]/10 text-[#5DF8D8]">
               <FaVideo size={30} />
             </div>
@@ -76,8 +72,6 @@ export default function TutorServices() {
           </div>
         </div>
       </div>
-
-  
     </section>
   );
 }

@@ -4,13 +4,11 @@ import { motion } from 'framer-motion';
 
 export default function TransformSection() {
   return (
-    <section className="relative py-28 px-6 bg-[#0F172A] text-white overflow-hidden">
-  
+    <section className="relative py-28 px-6 dark:bg-[#0F172A] bg-[#a0bb90] text-white overflow-hidden">
       <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-[#5DF8D8]/20 blur-3xl rounded-full" />
       <div className="absolute bottom-[-120px] right-[-120px] w-[400px] h-[400px] bg-[#5DF8D8]/10 blur-3xl rounded-full" />
 
       <div className="max-w-7xl mx-auto relative">
-     
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,20 +16,18 @@ export default function TransformSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
             Transform Your Learning <br />
             Into Real Success
           </h1>
 
-          <p className="text-gray-300 mt-5 max-w-2xl mx-auto">
+          <p className="dark:text-gray-300 text-gray-600 mt-5 max-w-2xl mx-auto">
             Build your tutor platform, manage students, and grow your teaching
             career with smart tools.
           </p>
         </motion.div>
 
-
         <div className="grid lg:grid-cols-12 gap-10 items-center">
-       
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -39,29 +35,28 @@ export default function TransformSection() {
             viewport={{ once: true }}
             className="lg:col-span-4 space-y-6"
           >
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-3xl">
+            <div className="dark:bg-white/5 bg-white/12 backdrop-blur-xl border border-white/10 p-6 rounded-3xl">
               <h3 className="text-[#5DF8D8] font-semibold">Smart Booking</h3>
-              <p className="text-gray-300 text-sm mt-2">
+              <p className="dark:text-gray-300 text-gray-600 text-sm mt-2">
                 Schedule classes easily with real-time availability.
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-3xl">
+            <div className="dark:bg-white/5 bg-white/12 backdrop-blur-xl border border-white/10 p-6 rounded-3xl">
               <h3 className="text-[#5DF8D8] font-semibold">Live Learning</h3>
-              <p className="text-gray-300 text-sm mt-2">
+              <p className="dark:text-gray-300 text-gray-600 text-sm mt-2">
                 One-to-one sessions with expert tutors.
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-3xl">
+            <div className="dark:bg-white/5 bg-white/12 backdrop-blur-xl border border-white/10 p-6 rounded-3xl">
               <h3 className="text-[#5DF8D8] font-semibold">Secure Payment</h3>
-              <p className="text-gray-300 text-sm mt-2">
+              <p className="dark:text-gray-300 text-gray-600 text-sm mt-2">
                 Fast and safe payment system for tutors.
               </p>
             </div>
           </motion.div>
 
-          
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -78,11 +73,9 @@ export default function TransformSection() {
                 />
               </div>
 
-          
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t dark:from-[#0F172A]/80 from-[#a0bb90]/80 via-transparent to-transparent" />
             </div>
 
-         
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
@@ -92,7 +85,6 @@ export default function TransformSection() {
             </motion.div>
           </motion.div>
 
-         
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -113,7 +105,7 @@ export default function TransformSection() {
 
             <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-3xl">
               <h4 className="text-[#5DF8D8] font-semibold">24/7 Support</h4>
-              <p className="text-gray-300 text-sm mt-2">
+              <p className="dark:text-gray-300 text-gray-600 text-sm mt-2">
                 We help students and tutors anytime.
               </p>
             </div>
@@ -129,7 +121,7 @@ export default function TransformSection() {
         >
           <path
             d="M0,0 C300,100 900,0 1200,100 L1200,120 L0,120 Z"
-            className="fill-[#0c1322]"
+            className="dark:fill-[#0c1322] fill-[#5e7551]"
           ></path>
         </svg>
       </div>
