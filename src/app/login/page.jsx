@@ -58,7 +58,7 @@ export default function LoginPage() {
                       {quotes[index]}
                     </p>
                     <p className="text-sm text-[#5DF8D8]">
-                      TutorLink Learning Platform
+                      MediQueue Learning Platform
                     </p>
                   </div>
                 </div>
@@ -80,8 +80,8 @@ export default function LoginPage() {
             <h2 className="text-3xl font-semibold pb-3">Welcome Back</h2>
 
             <p className="text-gray-400 mb-8">
-              Continue your learning journey with anime-style tutors & smart
-              classes.
+              Unlock your potential with expert tutors and interactive learning
+              experiences.
             </p>
 
             <form className="space-y-6">
@@ -116,38 +116,7 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <style jsx>{`
-        .animate-zoomSlow {
-          animation: zoom 7s ease-in-out infinite;
-        }
 
-        @keyframes zoom {
-          0% {
-            transform: scale(1.1);
-          }
-          50% {
-            transform: scale(1.25);
-          }
-          100% {
-            transform: scale(1.1);
-          }
-        }
-
-        .animate-fadeUp {
-          animation: fadeUp 1s ease-out;
-        }
-
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }

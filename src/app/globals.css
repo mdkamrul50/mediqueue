@@ -2,3 +2,36 @@
 @import "@heroui/styles";
 
 
+.animate-zoomSlow {
+  animation: zoom 7s ease-in-out infinite;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1.1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 1s ease-out;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

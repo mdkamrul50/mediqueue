@@ -53,7 +53,7 @@ export default function RegisterPage() {
                     className="h-full w-full object-cover scale-110 animate-zoomSlow"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/95 via-[#0F172A]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0F172A]/95 via-[#0F172A]/40 to-transparent" />
 
                   <div className="absolute bottom-10 left-10 right-10 text-white animate-fadeUp">
                     <p className="text-2xl font-semibold leading-tight mb-3">
@@ -61,7 +61,7 @@ export default function RegisterPage() {
                     </p>
 
                     <p className="text-sm text-[#5DF8D8]">
-                      TutorLink Learning Platform
+                      MediQueue Learning Platform
                     </p>
                   </div>
                 </div>
@@ -153,40 +153,7 @@ export default function RegisterPage() {
         </div>
       </div>
 
-      {/* CUSTOM ANIMATION */}
-      <style jsx>{`
-        .animate-zoomSlow {
-          animation: zoom 7s ease-in-out infinite;
-        }
 
-        @keyframes zoom {
-          0% {
-            transform: scale(1.1);
-          }
-          50% {
-            transform: scale(1.25);
-          }
-          100% {
-            transform: scale(1.1);
-          }
-        }
-
-        .animate-fadeUp {
-          animation: fadeUp 1s ease-out;
-        }
-
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }
