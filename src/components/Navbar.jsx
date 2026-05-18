@@ -23,7 +23,7 @@ const Navbar = () => {
             <Button>Login</Button>
           </Link>
           <Link href={'/register'}>
-            <Button variant="secondary" className={'text-black'}>
+            <Button variant="secondary" className={'text-black dark:bg-gray-300 dark:text-blue-900'}>
               Register
             </Button>
           </Link>

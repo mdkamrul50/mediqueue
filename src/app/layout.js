@@ -2,6 +2,7 @@ import { PT_Serif } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Providers from './providers';
 
 const ptSerif = PT_Serif({
   subsets: ['latin'],
@@ -15,10 +16,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${ptSerif.className} h-full antialiased`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${ptSerif.className} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col font-sora">
         <Navbar />
-        {children}
+        <Providers>{children}</Providers>
         <Footer />
       </body>
     </html>

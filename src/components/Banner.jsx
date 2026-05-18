@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 const slides = [
   {
@@ -43,7 +44,9 @@ export default function Banner() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#062f49] text-white py-4">
+    <section className="relative overflow-hidden bg-[#888c95] text-white py-4 dark:bg-[#062f49] ">
+      <ThemeToggle />
+
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-[#5DF8D8]/20 blur-3xl " />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
 
@@ -130,8 +133,10 @@ export default function Banner() {
               }}
               className="absolute -left-6 top-10 rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-xl"
             >
-              <p className="text-sm text-gray-300">Live Classes</p>
-              <h4 className="mt-1 text-xl font-bold">24/7 Learning</h4>
+              <p className="text-sm text-black">Live Classes</p>
+              <h4 className="mt-1 text-xl font-bold text-[#0c4a73]">
+                24/7 Learning
+              </h4>
             </motion.div>
 
             <motion.div
@@ -142,8 +147,8 @@ export default function Banner() {
               }}
               className="absolute -bottom-6 right-4 rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-xl"
             >
-              <p className="text-sm text-gray-300">Success Rate</p>
-              <h4 className="mt-1 text-xl font-bold">98%</h4>
+              <p className="text-sm text-black">Success Rate</p>
+              <h4 className="mt-1 text-xl font-bold text-[#0b466d]">98%</h4>
             </motion.div>
           </motion.div>
         </AnimatePresence>
