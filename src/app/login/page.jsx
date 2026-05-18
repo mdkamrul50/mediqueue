@@ -29,8 +29,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[#0f1524] flex items-center justify-center p-4">
       <div className="max-w-6xl w-full bg-[#3B7597]/50 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden grid md:grid-cols-2 shadow-2xl">
-   
-        <div className="relative hidden md:block h-[650px]">
+        <div className="relative hidden md:block h-full">
           <Swiper
             modules={[Autoplay, EffectFade]}
             autoplay={{
@@ -78,7 +77,7 @@ export default function LoginPage() {
               className="mb-3"
             />
 
-            <h2 className="text-3xl font-semibold">Welcome Back</h2>
+            <h2 className="text-3xl font-semibold pb-3">Welcome Back</h2>
 
             <p className="text-gray-400 mb-8">
               Continue your learning journey with anime-style tutors & smart
@@ -103,23 +102,20 @@ export default function LoginPage() {
               </button>
             </form>
 
-            
             <div className="flex items-center gap-4 my-8">
               <div className="flex-1 h-px bg-white/10"></div>
               <span className="text-gray-400 text-sm">OR</span>
               <div className="flex-1 h-px bg-white/10"></div>
             </div>
 
-          
             <button className="w-full border border-white/10 hover:bg-white/10 py-4 rounded-2xl flex items-center justify-center gap-3">
-              <FaGoogle className="text-red-400" />
+              <FaGoogle className="text-blue-400" />
               Continue with Google
             </button>
           </div>
         </div>
       </div>
 
-    
       <style jsx>{`
         .animate-zoomSlow {
           animation: zoom 7s ease-in-out infinite;
