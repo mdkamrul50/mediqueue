@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-[#0c1322] text-white ">
       
       <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-4">
-        {/* Brand */}
+     
         <div>
           <h2 className="text-2xl font-bold">
             Tutor<span className="text-[#5DF8D8]">Hub</span>
@@ -17,7 +17,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Services Links */}
+
         <div>
           <h3 className="text-lg font-semibold mb-4 text-[#5DF8D8]">
             Services
@@ -38,7 +38,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact */}
+      
         <div>
           <h3 className="text-lg font-semibold mb-4 text-[#5DF8D8]">Contact</h3>
           <ul className="space-y-2 text-sm text-gray-300">
@@ -48,7 +48,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Social */}
+   
         <div>
           <h3 className="text-lg font-semibold mb-4 text-[#5DF8D8]">
             Follow Us
@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+    
       <div className="border-t border-white/10 py-5 text-center text-sm text-gray-400">
         © {new Date().getFullYear()} TutorHub. All rights reserved.
       </div>

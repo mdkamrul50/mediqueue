@@ -44,12 +44,10 @@ export default function Banner() {
 
   return (
     <section className="relative overflow-hidden bg-[#093C5D] text-white py-4">
-      {/* Background Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-[#5DF8D8]/20 blur-3xl " />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
 
       <div className="relative mx-auto grid min-h-[90vh] container grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-2">
-        {/* LEFT CONTENT */}
         <AnimatePresence mode="wait">
           <motion.div
             key={slides[current].id}
@@ -84,7 +82,6 @@ export default function Banner() {
               </button>
             </div>
 
-            {/* Stats */}
             <div className="flex flex-wrap gap-6 pt-4">
               <div>
                 <h3 className="text-2xl font-bold">12K+</h3>
@@ -106,7 +103,6 @@ export default function Banner() {
           </motion.div>
         </AnimatePresence>
 
-        {/* RIGHT IMAGE */}
         <AnimatePresence mode="wait">
           <motion.div
             key={slides[current].image}
@@ -126,7 +122,6 @@ export default function Banner() {
               />
             </div>
 
-            {/* Floating Card */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{
@@ -154,7 +149,6 @@ export default function Banner() {
         </AnimatePresence>
       </div>
 
-      {/* Dots */}
       <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-3 ">
         {slides.map((slide, index) => (
           <button
@@ -166,8 +160,6 @@ export default function Banner() {
           />
         ))}
       </div>
-
-
     </section>
   );
 }

@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 export default function TransformSection() {
   return (
     <section className="relative py-28 px-6 bg-[#0F172A] text-white overflow-hidden">
-      {/* Background Glow */}
+  
       <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-[#5DF8D8]/20 blur-3xl rounded-full" />
       <div className="absolute bottom-[-120px] right-[-120px] w-[400px] h-[400px] bg-[#5DF8D8]/10 blur-3xl rounded-full" />
 
       <div className="max-w-7xl mx-auto relative">
-        {/* TOP TEXT */}
+     
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,9 +29,9 @@ export default function TransformSection() {
           </p>
         </motion.div>
 
-        {/* UNIQUE LAYOUT */}
+
         <div className="grid lg:grid-cols-12 gap-10 items-center">
-          {/* LEFT FLOAT CARD */}
+       
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -61,7 +61,7 @@ export default function TransformSection() {
             </div>
           </motion.div>
 
-          {/* CENTER IMAGE (BIG FEATURE) */}
+          
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -78,11 +78,11 @@ export default function TransformSection() {
                 />
               </div>
 
-              {/* Overlay */}
+          
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent" />
             </div>
 
-            {/* Floating Badge */}
+         
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
@@ -92,7 +92,7 @@ export default function TransformSection() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT CTA BLOCK */}
+         
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
