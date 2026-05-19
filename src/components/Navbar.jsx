@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <div className=" dark:bg-[#3B7597] bg-[#b8d2bf]" >
+    <div className=" dark:bg-[#3B7597] bg-[#b8d2bf]">
       <div className="container mx-auto flex justify-between my-3">
         <Image src={Logo} height={150} width={150} alt="logo" />
         <div className="flex gap-8">
@@ -14,7 +14,9 @@ const Navbar = () => {
             <Link href={'/'}>
               <li>Home</li>
             </Link>
-            <li>Tutors</li>
+            <Link href={'/tutors'}>
+              <li>Tutors</li>
+            </Link>
           </ul>
         </div>
 
