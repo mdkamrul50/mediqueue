@@ -1,3 +1,4 @@
+import AvailableTutors from '@/components/AvailableTutors';
 import Banner from '@/components/Banner';
 import TransformSection from '@/components/TransformSection';
 import TutorServices from '@/components/TutoreServices';
@@ -8,8 +9,9 @@ export default function Home() {
   return (
     <main>
       <Banner />
-       <TutorServices />
-       <TransformSection />
+      <AvailableTutors />
+      <TutorServices />
+      <TransformSection />
     </main>
   );
 }
