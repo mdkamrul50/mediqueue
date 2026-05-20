@@ -85,6 +85,15 @@ const tutorDetailPage = async ({ params }) => {
               <div className="flex items-center gap-3">
                 <FaClock className="dark:text-[#5DF8D8] text-[#2b7667]" />
                 <p>
+                  Session Start Date:{' '}
+                  <span className="text-[#cdcd1b] font-bold ">
+                    {tutor.sessionDate}
+                  </span>
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaClock className="dark:text-[#5DF8D8] text-[#2b7667]" />
+                <p>
                   Remaining Slots:{' '}
                   <span className="text-[#e1e11c] font-bold ">
                     {tutor.slots}

@@ -42,7 +42,9 @@ export function BookSessionModal({ tutor }) {
       console.log(data);
 
       if (data) {
+       
         toast.success('Booking successful 🎉');
+
       }
     } catch (error) {
       console.log(error);
@@ -51,16 +53,18 @@ export function BookSessionModal({ tutor }) {
   };
   return (
     <Modal>
-      {/* TRIGGER BUTTON */}
-      <Button className="w-full py-6 rounded-full bg-linear-to-r from-[#5DF8D8] to-[#a6ffe8] text-black font-bold shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-95">
-        Book Session
-      </Button>
+      {tutor.slots === 0 ? (
+        <p>Not Available Session</p>
+      ) : (
+        <Button className="w-full py-6 rounded-full bg-linear-to-r from-[#5DF8D8] to-[#a6ffe8] text-black font-bold shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-95">
+          Book Session
+        </Button>
+      )}
 
-      {/* BACKDROP (GLASS BLUR) */}
       <Modal.Backdrop className="backdrop-blur-md bg-black/40" variant="blur">
         <Modal.Container>
-          <Modal.Dialog className="sm:max-w-[460px] rounded-3xl border border-white/10 bg-white/10 dark:bg-black/30 backdrop-blur-3xl shadow-2xl overflow-hidden">
-            {/* HEADER */}
+          <Modal.Dialog className="sm:max-w-115 rounded-3xl border border-white/10 bg-white/10 dark:bg-black/30 backdrop-blur-3xl shadow-2xl overflow-hidden">
+       
             <Modal.Header className="text-center flex flex-col items-center gap-2 py-6 border-b border-white/10">
               <div className="p-3 rounded-full bg-[#5DF8D8]/20">
                 <FaMagic className="text-[#5DF8D8] text-xl" />
@@ -73,10 +77,10 @@ export function BookSessionModal({ tutor }) {
               </p>
             </Modal.Header>
 
-            {/* BODY */}
+         
             <Modal.Body className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Student Name */}
+          
                 <div>
                   <label className="text-xs text-gray-400">Student Name</label>
                   <input
@@ -89,7 +93,7 @@ export function BookSessionModal({ tutor }) {
                   />
                 </div>
 
-                {/* Phone */}
+            
                 <div>
                   <label className="text-xs text-gray-400">Phone Number</label>
                   <input
@@ -102,7 +106,7 @@ export function BookSessionModal({ tutor }) {
                   />
                 </div>
 
-                {/* Tutor Info Grid */}
+             
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="text-xs text-gray-400">Tutor Name</label>
