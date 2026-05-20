@@ -4,6 +4,7 @@ import { Button, Modal } from '@heroui/react';
 import { FaMagic } from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export function BookSessionModal({ tutor }) {
   const { data } = authClient.useSession();
@@ -15,21 +16,43 @@ export function BookSessionModal({ tutor }) {
     tutorId: tutor?._id,
     tutorName: tutor?.name,
     email: user?.email || '',
+    userId: user?.id,
   });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
-  };
 
+    console.log(form);
+
+    try {
+      const res = await fetch('http://localhost:5000/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      console.log(data);
+
+      if (data) {
+        toast.success('Booking successful 🎉');
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error('Something went wrong ❌');
+    }
+  };
   return (
     <Modal>
       {/* TRIGGER BUTTON */}
-      <Button className="w-full py-6 rounded-full bg-gradient-to-r from-[#5DF8D8] to-[#a6ffe8] text-black font-bold shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-95">
+      <Button className="w-full py-6 rounded-full bg-linear-to-r from-[#5DF8D8] to-[#a6ffe8] text-black font-bold shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-95">
         Book Session
       </Button>
 
@@ -84,7 +107,7 @@ export function BookSessionModal({ tutor }) {
                   <div>
                     <label className="text-xs text-gray-400">Tutor Name</label>
                     <input
-                      value={form.tutorName}
+                      value={tutor.name}
                       readOnly
                       className="w-full mt-1 p-3 rounded-xl bg-white/5 border border-white/10 text-gray-300 cursor-not-allowed"
                     />

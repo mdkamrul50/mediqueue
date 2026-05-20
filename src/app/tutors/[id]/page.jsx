@@ -100,7 +100,7 @@ const tutorDetailPage = async ({ params }) => {
               </div>
             </div>
 
-            <BookSessionModal />
+            <BookSessionModal tutor={tutor} />
           </div>
         </div>
       </div>
