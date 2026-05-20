@@ -1,3 +1,4 @@
+import { BookSessionModal } from '@/components/BookSessionModal';
 import Shape from '@/components/borderShape/Shape';
 import Image from 'next/image';
 import React from 'react';
@@ -33,7 +34,7 @@ const tutorDetailPage = async ({ params }) => {
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
 
             <div className="absolute top-5 right-5 flex items-center gap-2 rounded-full bg-black/60 px-4 py-2 backdrop-blur-md border border-white/10">
               <FaStar className="text-yellow-400 animate-pulse" />
@@ -93,15 +94,13 @@ const tutorDetailPage = async ({ params }) => {
 
               <div className="text-sm dark:text-gray-400 text-gray-600">
                 Experience:{' '}
-                <span className=" text-white dark:text-black">
+                <span className=" text-white dark:text-white/80">
                   {tutor.experience}
                 </span>
               </div>
             </div>
 
-            <button className="w-full py-4 rounded-full dark:bg-[#5DF8D8] bg-[#aec8b5] text-black font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#5DF8D8]/30 active:scale-95">
-              Book This Tutor
-            </button>
+            <BookSessionModal />
           </div>
         </div>
       </div>

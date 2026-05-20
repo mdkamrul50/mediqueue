@@ -68,18 +68,16 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-3">
-      
           <Link href="/">
             <Image
               src={Logo}
               height={120}
               width={120}
               alt="logo"
-              className="w-[110px] md:w-[130px]"
+              className="w-27.5 md:w-32.5"
             />
           </Link>
 
-       
           <div className="hidden lg:flex items-center gap-8">
             <ul className="flex items-center gap-6 text-gray-900 dark:text-white">
               {navLinks.map((link) => (
@@ -94,7 +92,7 @@ const Navbar = () => {
                     {link.name}
 
                     <span
-                      className={`absolute left-0 bottom-0 h-[2px] bg-[#2b7667] dark:bg-[#5DF8D8] transition-all duration-300 ${
+                      className={`absolute left-0 bottom-0 h-0.5 bg-[#2b7667] dark:bg-[#5DF8D8] transition-all duration-300 ${
                         pathname === link.path
                           ? 'w-full'
                           : 'w-0 group-hover:w-full'
@@ -117,7 +115,7 @@ const Navbar = () => {
                       {link.name}
 
                       <span
-                        className={`absolute left-0 bottom-0 h-[2px] bg-[#2b7667] dark:bg-[#5DF8D8] transition-all duration-300 ${
+                        className={`absolute left-0 bottom-0 h-0.5 bg-[#2b7667] dark:bg-[#5DF8D8] transition-all duration-300 ${
                           pathname === link.path ? 'w-full' : 'w-0 hover:w-full'
                         }`}
                       ></span>
@@ -150,7 +148,6 @@ const Navbar = () => {
             )}
           </div>
 
-        
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden text-3xl text-black dark:text-white"
@@ -159,7 +156,6 @@ const Navbar = () => {
           </button>
         </div>
 
-    
         <div
           className={`lg:hidden overflow-hidden transition-all duration-500 ${
             isOpen ? 'max-h-[600px] pb-6' : 'max-h-0'
@@ -179,7 +175,7 @@ const Navbar = () => {
                   {link.name}
 
                   <span
-                    className={`absolute left-0 bottom-0 h-[2px] bg-[#2b7667] dark:bg-[#5DF8D8] transition-all duration-300 ${
+                    className={`absolute left-0 bottom-0 h-0.5 bg-[#2b7667] dark:bg-[#5DF8D8] transition-all duration-300 ${
                       pathname === link.path ? 'w-full' : 'w-0'
                     }`}
                   ></span>
@@ -201,7 +197,7 @@ const Navbar = () => {
                     {link.name}
 
                     <span
-                      className={`absolute left-0 bottom-0 h-[2px] bg-[#2b7667] dark:bg-[#5DF8D8] transition-all duration-300 ${
+                      className={`absolute left-0 bottom-0 h-0.5 bg-[#2b7667] dark:bg-[#5DF8D8] transition-all duration-300 ${
                         pathname === link.path ? 'w-full' : 'w-0'
                       }`}
                     ></span>
