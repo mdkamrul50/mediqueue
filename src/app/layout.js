@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Providers from './providers';
+import { Toaster } from 'react-hot-toast';
 
 const ptSerif = PT_Serif({
   subsets: ['latin'],
@@ -24,6 +25,8 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col font-sora">
         <Navbar />
         <Providers>{children}</Providers>
+
+        <Toaster />
         <Footer />
       </body>
     </html>

@@ -41,7 +41,7 @@ const tutorDetailPage = async ({ params }) => {
             </div>
 
             <div className="absolute bottom-5 left-5 bg-[#5DF8D8] text-black px-5 py-2 rounded-full font-bold shadow-lg transition-all duration-300 group-hover:scale-110">
-              ৳ {tutor.fee}
+              ৳ {tutor.fee}/hr
             </div>
           </div>
 
@@ -80,6 +80,15 @@ const tutorDetailPage = async ({ params }) => {
               <div className="flex items-center gap-3">
                 <FaVideo className="dark:text-[#5DF8D8] text-[#2b7667]" />
                 <p>{tutor.mode?.join(', ')}</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaClock className="dark:text-[#5DF8D8] text-[#2b7667]" />
+                <p>
+                  Remaining Slots:{' '}
+                  <span className="text-[#e1e11c] font-bold ">
+                    {tutor.slots}
+                  </span>
+                </p>
               </div>
 
               <div className="text-sm dark:text-gray-400 text-gray-600">

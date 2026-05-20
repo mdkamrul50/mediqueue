@@ -10,8 +10,39 @@ import 'swiper/css/effect-fade';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { authClient, signUp } from '../../lib/auth-client';
+import toast from 'react-hot-toast';
+import { Form } from '@heroui/react';
+
+import { useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
+  const router = useRouter();
+  const handelRegister = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const registerData = Object.fromEntries(formData.entries());
+
+    const { data, error } = await authClient.signUp.email({
+      name: registerData.name,
+      email: registerData.email,
+      image: registerData.image,
+      password: registerData.password,
+    });
+
+    console.log({ data, error });
+
+    if (data) {
+      toast.success('Register Successful!');
+      router.push('/login');
+    } else {
+      toast.error('Some Problem');
+    }
+  };
+
   const images = [
     'https://plus.unsplash.com/premium_vector-1726498072933-f6112c1b1396?q=80&w=1077&auto=format&fit=crop',
 
@@ -86,11 +117,12 @@ export default function RegisterPage() {
               Start your learning journey with smart tutors and live classes.
             </p>
 
-            <form className="space-y-5">
+            <Form onSubmit={handelRegister} className="space-y-5">
               <div className="relative">
                 <FaUser className="absolute top-1/2 -translate-y-1/2 left-5 text-[#5DF8D8]" />
 
                 <input
+                  name="name"
                   type="text"
                   placeholder="Full Name"
                   className="w-full pl-14 pr-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#5DF8D8] outline-none"
@@ -101,6 +133,7 @@ export default function RegisterPage() {
                 <FaEnvelope className="absolute top-1/2 -translate-y-1/2 left-5 text-[#5DF8D8]" />
 
                 <input
+                  name="email"
                   type="email"
                   placeholder="Email Address"
                   className="w-full pl-14 pr-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#5DF8D8] outline-none"
@@ -110,6 +143,7 @@ export default function RegisterPage() {
                 <FaUser className="absolute top-1/2 -translate-y-1/2 left-5 text-[#5DF8D8]" />
 
                 <input
+                  name="image"
                   type="text"
                   placeholder="Photo URL"
                   className="w-full pl-14 pr-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#5DF8D8] outline-none"
@@ -120,16 +154,20 @@ export default function RegisterPage() {
                 <FaLock className="absolute top-1/2 -translate-y-1/2 left-5 text-[#5DF8D8]" />
 
                 <input
+                  name="password"
                   type="password"
                   placeholder="Password"
                   className="w-full pl-14 pr-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#5DF8D8] outline-none"
                 />
               </div>
 
-              <button className="w-full bg-[#5DF8D8] text-black font-semibold py-4 rounded-2xl hover:bg-[#4BE8C5] transition active:scale-95">
+              <button
+                type="submit"
+                className="w-full bg-[#5DF8D8] text-black font-semibold py-4 rounded-2xl hover:bg-[#4BE8C5] transition active:scale-95"
+              >
                 Register
               </button>
-            </form>
+            </Form>
 
             {/* OR */}
             <div className="flex items-center gap-4 my-8">
@@ -152,8 +190,6 @@ export default function RegisterPage() {
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }

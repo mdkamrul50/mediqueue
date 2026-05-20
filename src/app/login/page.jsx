@@ -8,8 +8,38 @@ import Logo from "@/assets/logo.png";
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Image from 'next/image';
+import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
 
 export default function LoginPage() {
+
+  const handelLogin = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const loginData = Object.fromEntries(formData.entries());
+
+    const { data, error } = await authClient.signIn.email({
+      email: loginData.email,
+      password: loginData.password,
+      callbackURL: '/',
+    });
+
+    if (error) {
+      toast.error('Login failed ❌ ' + error.message);
+    }
+
+    if (data) {
+      toast.success('Login successful 🎉');
+    }
+
+    console.log(data, error);
+  };
+
+
+
   const images = [
     'https://plus.unsplash.com/premium_vector-1726498072933-f6112c1b1396?q=80&w=1077&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://images.unsplash.com/photo-1486520299386-6d106b22014b?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
@@ -84,20 +114,25 @@ export default function LoginPage() {
               experiences.
             </p>
 
-            <form className="space-y-6">
+            <form onSubmit={handelLogin} className="space-y-6">
               <input
+                name="email"
                 type="email"
                 placeholder="Email Address"
                 className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#5DF8D8] outline-none"
               />
 
               <input
+                name="password"
                 type="password"
                 placeholder="Password"
                 className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#5DF8D8] outline-none"
               />
 
-              <button className="w-full bg-[#5DF8D8] text-black font-semibold py-4 rounded-2xl hover:bg-[#4BE8C5] transition active:scale-95">
+              <button
+                type="submit"
+                className="w-full bg-[#5DF8D8] text-black font-semibold py-4 rounded-2xl hover:bg-[#4BE8C5] transition active:scale-95"
+              >
                 Log In
               </button>
             </form>
@@ -115,8 +150,6 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-
-    
     </div>
   );
 }
