@@ -17,11 +17,15 @@ const MyBookedSessions = async () => {
     );
   }
 
-  const res = await fetch(`http://localhost:5000/booking/${user.id}`, {
+const res = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/booking/${user.id}`,
+  {
+    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  }
+);
 
   const data = await res.json();
 
