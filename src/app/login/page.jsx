@@ -37,6 +37,18 @@ export default function LoginPage() {
     console.log(data, error);
   };
 
+    const handelGoogleLogin = async () => {
+      try {
+        await authClient.signIn.social({
+          provider: 'google',
+        });
+
+        toast.success('Redirecting to Google... 🚀');
+      } catch (error) {
+        toast.error('Google login failed ❌');
+      }
+    };
+
   const images = [
     'https://plus.unsplash.com/premium_vector-1726498072933-f6112c1b1396?q=80&w=1077&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'https://images.unsplash.com/photo-1486520299386-6d106b22014b?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -139,7 +151,10 @@ export default function LoginPage() {
               <div className="flex-1 h-px bg-white/10"></div>
             </div>
 
-            <button className="w-full border border-white/10 hover:bg-white/10 py-4 rounded-2xl flex items-center justify-center gap-3">
+            <button
+              onSubmit={handelGoogleLogin}
+              className="w-full border border-white/10 hover:bg-white/10 py-4 rounded-2xl flex items-center justify-center gap-3"
+            >
               <FaGoogle className="text-blue-400" />
               Continue with Google
             </button>
