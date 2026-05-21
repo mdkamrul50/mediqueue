@@ -81,7 +81,7 @@ const MyTutorPage = () => {
                     </td>
 
                     <td className="p-4 text-[#2b7667] dark:text-[#5DF8D8] font-bold">
-                      ৳ {item.fee}
+                       {item.fee}/hr
                     </td>
 
                     <td className="p-4">{item.slots}</td>

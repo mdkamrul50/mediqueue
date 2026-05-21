@@ -5,7 +5,7 @@ import React from 'react';
 import { FaStar, FaClock, FaVideo, FaMapMarkerAlt } from 'react-icons/fa';
 
 const singleTutorDetail = async (id) => {
-  const res = await fetch(`${process.env.PUBLIC_API_URL}/tutors/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`, {
     cache: 'no-store',
   });
 
