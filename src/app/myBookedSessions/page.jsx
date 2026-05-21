@@ -1,12 +1,6 @@
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import React from 'react';
-import {
-  FaUserGraduate,
-  FaPhone,
-  FaEnvelope,
-  FaChalkboardTeacher,
-} from 'react-icons/fa';
 
 const MyBookedSessions = async () => {
   const session = await auth.api.getSession({
@@ -14,7 +8,6 @@ const MyBookedSessions = async () => {
   });
 
   const user = session?.user;
-
 
   if (!user) {
     return (
@@ -24,18 +17,13 @@ const MyBookedSessions = async () => {
     );
   }
 
-const res = await fetch(`http://localhost:5000/booking/${user.id}`, {
-  
- 
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+  const res = await fetch(`http://localhost:5000/booking/${user.id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-
-
-const data = await res.json();
-
+  const data = await res.json();
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#d0e2d5] via-[#e8f3ec] to-[#d0e2d5] dark:from-[#0F172A] dark:via-[#0B1220] dark:to-[#0F172A] py-20 text-black dark:text-white">

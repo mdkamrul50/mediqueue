@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FaStar, FaClock, FaVideo } from 'react-icons/fa';
 
 const fetchTutors = async () => {
-  const res = await fetch(`${process.env.PUBLIC_API_URL}/tutors?limit=6`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors?limit=6`, {
     cache: 'no-store',
   });
 

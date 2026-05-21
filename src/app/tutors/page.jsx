@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FaStar, FaClock, FaVideo } from 'react-icons/fa';
 
 const fetchTutors = async () => {
-  const res = await fetch(`${process.env.PUBLIC_API_URL}/tutors`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors`, {
     cache: 'no-store',
   });
 
@@ -47,17 +47,15 @@ const TutorsPage = async () => {
                   alt={tutor.name}
                   width={500}
                   height={500}
-                  className="h-[320px] w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-87.5 w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                {/* Rating */}
                 <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-sm text-white backdrop-blur-md">
                   <FaStar className="text-yellow-400" />
                   {tutor.rating}
                 </div>
               </div>
 
-              {/* Content */}
               <div className="pt-6">
                 <div className="mb-4 flex items-center justify-between">
                   <div>
@@ -69,7 +67,6 @@ const TutorsPage = async () => {
                   </div>
                 </div>
 
-                {/* Subjects */}
                 <div className="mb-5 flex flex-wrap gap-2">
                   {tutor.subjects?.map((subject, i) => (
                     <span
@@ -81,7 +78,6 @@ const TutorsPage = async () => {
                   ))}
                 </div>
 
-                {/* Info */}
                 <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
                   <div className="flex items-center gap-3">
                     <FaVideo className="text-[#5DF8D8]" />
@@ -89,7 +85,6 @@ const TutorsPage = async () => {
                   </div>
                 </div>
 
-                {/* Footer */}
                 <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
                   <Link href={`/tutors/${tutor._id}`}>
                     <button className="rounded-full bg-[#0c4a73] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-[#5DF8D8] hover:text-black dark:bg-[#5DF8D8] dark:text-black">
