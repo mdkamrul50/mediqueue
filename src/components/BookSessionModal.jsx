@@ -40,16 +40,13 @@ export function BookSessionModal({ tutor }) {
 
       const data = await res.json();
 
-    
       if (!res.ok) {
         toast.error(data.message);
         return;
       }
 
-    
       toast.success('Booking successful 🎉');
 
-     
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -71,14 +68,13 @@ export function BookSessionModal({ tutor }) {
             : 'bg-linear-to-r from-[#5DF8D8] to-[#a6ffe8] text-black hover:scale-[1.03]'
         }`}
       >
-        {tutor.slots === 0 ? 'No Sessions Available' : 'Book Session'}
+        {tutor.slots === 0 ? 'This session is fully booked' : 'Book Session'}
       </Button>
 
       {/* BACKDROP */}
       <Modal.Backdrop className="backdrop-blur-md bg-black/40" variant="blur">
         <Modal.Container>
           <Modal.Dialog className="sm:max-w-[460px] rounded-3xl border border-white/10 bg-white/10 dark:bg-black/30 backdrop-blur-3xl shadow-2xl overflow-hidden">
-
             <Modal.Header className="text-center flex flex-col items-center gap-2 py-6 border-b border-white/10">
               <div className="p-3 rounded-full bg-[#5DF8D8]/20">
                 <FaMagic className="text-[#5DF8D8] text-xl" />
@@ -93,10 +89,8 @@ export function BookSessionModal({ tutor }) {
               </p>
             </Modal.Header>
 
-
             <Modal.Body className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
-
                 <div>
                   <label className="text-xs text-gray-400">Student Name</label>
 
@@ -155,7 +149,6 @@ export function BookSessionModal({ tutor }) {
                   />
                 </div>
 
-             
                 <Button
                   type="submit"
                   className="w-full py-3 rounded-xl bg-[#5DF8D8] text-black font-bold hover:shadow-lg hover:shadow-[#5DF8D8]/30 transition"
