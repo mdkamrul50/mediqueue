@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Modal } from '@heroui/react';
-import { FaMagic } from 'react-icons/fa';
+import { FaMagic, FaTimesCircle } from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -20,13 +20,14 @@ export function BookSessionModal({ tutor }) {
   });
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(form);
 
     try {
       const res = await fetch('http://localhost:5000/booking', {
@@ -39,50 +40,66 @@ export function BookSessionModal({ tutor }) {
 
       const data = await res.json();
 
-      console.log(data);
-
-      if (data) {
-       
-        toast.success('Booking successful 🎉');
-
+    
+      if (!res.ok) {
+        toast.error(data.message);
+        return;
       }
+
+    
+      toast.success('Booking successful 🎉');
+
+     
+      window.location.reload();
     } catch (error) {
       console.log(error);
-      toast.error('Something went wrong ❌');
+      toast.error(
+        `Something went wrong ${(<FaTimesCircle className="text-red-500 text-2xl" />)}`
+      );
     }
   };
+
   return (
     <Modal>
-      {tutor.slots === 0 ? (
-        <p>Not Available Session</p>
-      ) : (
-        <Button className="w-full py-6 rounded-full bg-linear-to-r from-[#5DF8D8] to-[#a6ffe8] text-black font-bold shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-95">
-          Book Session
-        </Button>
-      )}
+      {/* TRIGGER BUTTON */}
+      <Button
+        disabled={tutor.slots === 0}
+        className={`w-full py-6 rounded-full font-bold shadow-lg transition-all duration-300 active:scale-95
+        ${
+          tutor.slots === 0
+            ? 'bg-gray-500 text-white cursor-not-allowed'
+            : 'bg-linear-to-r from-[#5DF8D8] to-[#a6ffe8] text-black hover:scale-[1.03]'
+        }`}
+      >
+        {tutor.slots === 0 ? 'No Sessions Available' : 'Book Session'}
+      </Button>
 
+      {/* BACKDROP */}
       <Modal.Backdrop className="backdrop-blur-md bg-black/40" variant="blur">
         <Modal.Container>
-          <Modal.Dialog className="sm:max-w-115 rounded-3xl border border-white/10 bg-white/10 dark:bg-black/30 backdrop-blur-3xl shadow-2xl overflow-hidden">
-       
+          <Modal.Dialog className="sm:max-w-[460px] rounded-3xl border border-white/10 bg-white/10 dark:bg-black/30 backdrop-blur-3xl shadow-2xl overflow-hidden">
+
             <Modal.Header className="text-center flex flex-col items-center gap-2 py-6 border-b border-white/10">
               <div className="p-3 rounded-full bg-[#5DF8D8]/20">
                 <FaMagic className="text-[#5DF8D8] text-xl" />
               </div>
+
               <Modal.Heading className="text-xl font-semibold">
                 Book Your Tutor Session
               </Modal.Heading>
+
               <p className="text-xs text-gray-400">
                 Fill the form to confirm your session
               </p>
             </Modal.Header>
 
-         
+
             <Modal.Body className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
-          
+
                 <div>
                   <label className="text-xs text-gray-400">Student Name</label>
+
                   <input
                     name="studentName"
                     value={form.studentName}
@@ -93,9 +110,9 @@ export function BookSessionModal({ tutor }) {
                   />
                 </div>
 
-            
                 <div>
                   <label className="text-xs text-gray-400">Phone Number</label>
+
                   <input
                     name="phone"
                     value={form.phone}
@@ -106,10 +123,10 @@ export function BookSessionModal({ tutor }) {
                   />
                 </div>
 
-             
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="text-xs text-gray-400">Tutor Name</label>
+
                     <input
                       value={tutor.name}
                       readOnly
@@ -119,6 +136,7 @@ export function BookSessionModal({ tutor }) {
 
                   <div>
                     <label className="text-xs text-gray-400">Tutor ID</label>
+
                     <input
                       value={form.tutorId}
                       readOnly
@@ -127,9 +145,9 @@ export function BookSessionModal({ tutor }) {
                   </div>
                 </div>
 
-                {/* Email */}
                 <div>
                   <label className="text-xs text-gray-400">Email</label>
+
                   <input
                     value={form.email}
                     readOnly
@@ -137,7 +155,7 @@ export function BookSessionModal({ tutor }) {
                   />
                 </div>
 
-                {/* SUBMIT */}
+             
                 <Button
                   type="submit"
                   className="w-full py-3 rounded-xl bg-[#5DF8D8] text-black font-bold hover:shadow-lg hover:shadow-[#5DF8D8]/30 transition"
@@ -147,7 +165,6 @@ export function BookSessionModal({ tutor }) {
               </form>
             </Modal.Body>
 
-            {/* FOOTER */}
             <Modal.Footer className="p-4 border-t border-white/10">
               <Button
                 slot="close"

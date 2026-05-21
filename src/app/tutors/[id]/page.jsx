@@ -9,6 +9,8 @@ const singleTutorDetail = async (id) => {
     cache: 'no-store',
   });
 
+
+
   const data = await res.json();
   return data || {};
 };
