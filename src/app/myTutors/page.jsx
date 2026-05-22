@@ -5,6 +5,7 @@ import { authClient } from '@/lib/auth-client';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { SyncLoader } from 'react-spinners';
+import toast from 'react-hot-toast';
 
 
 
@@ -45,6 +46,7 @@ const handleDelete = async () => {
     setTutors((prev) => prev.filter((t) => t._id !== deleteTutorId));
 
     setDeleteTutorId(null);
+    toast.error('Tutor delete Success!');
   }
 };
 
@@ -73,11 +75,15 @@ const handleUpdate = async (e) => {
 
     const data = await res.json();
 
+  
+
     if (!res.ok) {
       console.log(data);
       alert('Update failed');
       return;
     }
+
+    toast.success('Tutor update Successfully 🚀');
 
     setTutors((prev) =>
       prev.map((t) =>
