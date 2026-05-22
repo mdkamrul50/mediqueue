@@ -125,11 +125,36 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 relative">
             {user ? (
-              <Button onClick={handelSignOut} variant="secondary">
-                Logout
-              </Button>
+              <div className="relative group">
+                <button className="focus:outline-none">
+                  <img
+                    src={user.image}
+                    alt="user"
+                    className="h-12 w-12 rounded-full object-cover border-2 border-[#5DF8D8] hover:scale-105 transition"
+                  />
+                </button>
+
+                <div className="absolute right-0 mt-3 w-52 rounded-2xl border border-white/10 bg-[#0F172A]/95 backdrop-blur-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden">
+                  <div className="px-4 py-3 border-b border-white/10">
+                    <p className="text-sm font-semibold text-white">
+                      {user.name}
+                    </p>
+
+                    <p className="text-xs text-gray-400 truncate">
+                      {user.email}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={handelSignOut}
+                    className="w-full text-left px-4 py-3 text-sm text-red-400 hover:bg-white/5 transition"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
             ) : (
               <>
                 <Link href="/login">
@@ -206,6 +231,13 @@ const Navbar = () => {
               ))}
 
             <div className="flex flex-col gap-3 pt-4">
+              {user && (
+                <img
+                  src={user.image}
+                  alt="user"
+                  className="h-12 w-12 rounded-full object-cover border-2 border-[#5DF8D8] hover:scale-105 transition"
+                />
+              )}
               {user ? (
                 <Button onClick={handelSignOut} variant="secondary">
                   Logout

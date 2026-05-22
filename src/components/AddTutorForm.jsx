@@ -87,6 +87,7 @@ export default function AddTutorForm() {
           className="input"
         />
         <input
+        required
           name="image"
           onChange={handleChange}
           placeholder="Image URL"

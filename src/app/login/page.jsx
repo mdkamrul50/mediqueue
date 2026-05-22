@@ -10,6 +10,7 @@ import 'swiper/css/effect-fade';
 import Image from 'next/image';
 import { authClient } from '@/lib/auth-client';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const handelLogin = async (e) => {
@@ -145,6 +146,16 @@ export default function LoginPage() {
               </button>
             </form>
 
+            <p className="text-center text-sm text-gray-400 mt-2">
+              Don’t have an account?{' '}
+              <Link
+                href={'/register'}
+                className="text-blue-600 font-semibold hover:underline hover:text-blue-800 transition"
+              >
+                Register
+              </Link>
+            </p>
+
             <div className="flex items-center gap-4 my-8">
               <div className="flex-1 h-px bg-white/10"></div>
               <span className="text-gray-400 text-sm">OR</span>
@@ -152,7 +163,7 @@ export default function LoginPage() {
             </div>
 
             <button
-              onSubmit={handelGoogleLogin}
+              onClick={handelGoogleLogin}
               className="w-full border border-white/10 hover:bg-white/10 py-4 rounded-2xl flex items-center justify-center gap-3"
             >
               <FaGoogle className="text-blue-400" />

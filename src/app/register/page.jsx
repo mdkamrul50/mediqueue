@@ -12,7 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { authClient, signUp } from '../../lib/auth-client';
 import toast from 'react-hot-toast';
-import { Form } from '@heroui/react';
+import { Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 
 import { useRouter } from 'next/navigation';
 
@@ -32,8 +32,6 @@ export default function RegisterPage() {
       image: registerData.image,
       password: registerData.password,
     });
-
-    console.log({ data, error });
 
     if (data) {
       toast.success('Register Successful!');
@@ -150,16 +148,36 @@ export default function RegisterPage() {
                 />
               </div>
 
-              <div className="relative">
-                <FaLock className="absolute top-1/2 -translate-y-1/2 left-5 text-[#5DF8D8]" />
-
-                <input
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  className="w-full pl-14 pr-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#5DF8D8] outline-none"
+              <TextField
+                className={'relative'}
+                isRequired
+                minLength={8}
+                name="password"
+                type="password"
+                validate={(value) => {
+                  if (value.length < 8) {
+                    return 'Password must be at least 8 characters';
+                  }
+                  if (!/[A-Z]/.test(value)) {
+                    return 'Password must contain at least one uppercase letter';
+                  }
+                  if (!/[0-9]/.test(value)) {
+                    return 'Password must contain at least one number';
+                  }
+                  return null;
+                }}
+              >
+                <FaLock className="absolute top-1/3 -translate-y-1/2 left-5 text-[#5DF8D8]" />
+         
+                <Input
+                  className=" w-full pl-14 pr-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:border-[#5DF8D8] outline-none"
+                  placeholder="Enter your password"
                 />
-              </div>
+                <Description>
+                  Must be at least 8 characters with 1 uppercase and 1 number
+                </Description>
+                <FieldError />
+              </TextField>
 
               <button
                 type="submit"
