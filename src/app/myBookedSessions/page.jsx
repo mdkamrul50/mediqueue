@@ -2,6 +2,11 @@ import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import React from 'react';
 
+
+export const metadata = {
+  title: 'Booked Sessions | MediQueue',
+  description: 'Track all your booked tutor sessions in one place.',
+};
 const MyBookedSessions = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),

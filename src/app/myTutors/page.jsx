@@ -5,6 +5,11 @@ import { authClient } from '@/lib/auth-client';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'My Tutors | MediQueue',
+  description: 'Manage your created tutor services and update information.',
+};
+
 const MyTutorPage = () => {
   const { data } = authClient.useSession();
   const userId = data?.user?.id;

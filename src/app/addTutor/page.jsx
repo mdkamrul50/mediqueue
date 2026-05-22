@@ -1,5 +1,10 @@
 import AddTutorForm from '@/components/AddTutorForm';
 
+export const metadata = {
+  title: 'Add Tutor | MediQueue',
+  description: 'Add your tutoring service and connect with students.',
+};
+
 export default function AddTutor() {
   return (
     <section className="min-h-screen bg-[#d0e2d5] dark:bg-[#0F172A] text-black dark:text-white py-16 px-4 transition-colors duration-300">

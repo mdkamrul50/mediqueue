@@ -3,6 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaStar, FaClock, FaVideo } from 'react-icons/fa';
 
+export const metadata = {
+  title: 'Tutors | MediQueue',
+  description: 'Browse all expert tutors by subject and category.',
+};
+
 const fetchTutors = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors`, {
     cache: 'no-store',

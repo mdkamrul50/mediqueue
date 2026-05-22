@@ -4,6 +4,11 @@ import Image from 'next/image';
 import React from 'react';
 import { FaStar, FaClock, FaVideo, FaMapMarkerAlt } from 'react-icons/fa';
 
+export const metadata = {
+  title: 'Tutor Details | MediQueue',
+  description: 'View tutor profile, session info, and booking details.',
+};
+
 const singleTutorDetail = async (id) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`, {
     cache: 'no-store',
