@@ -4,11 +4,9 @@ import { useEffect, useState } from 'react';
 import { authClient } from '@/lib/auth-client';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
+import { SyncLoader } from 'react-spinners';
 
-export const metadata = {
-  title: 'My Tutors | MediQueue',
-  description: 'Manage your created tutor services and update information.',
-};
+
 
 const MyTutorPage = () => {
   const { data } = authClient.useSession();
@@ -25,14 +23,14 @@ const MyTutorPage = () => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-tutors/${userId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log('API DATA 👉', data);
+       
         setTutors(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
   }, [userId]);
 
-  // DELETE
+
 const handleDelete = async () => {
   if (!deleteTutorId) return;
 
@@ -50,12 +48,12 @@ const handleDelete = async () => {
   }
 };
 
-  // EDIT
+
   const handleEdit = (item) => {
     setEditTutor(item);
   };
 
-  // UPDATE
+
 const handleUpdate = async (e) => {
   e.preventDefault();
 
@@ -110,7 +108,10 @@ const handleUpdate = async (e) => {
         </motion.h1>
 
         {loading ? (
-          <p>Loading...</p>
+          <div className="flex justify-center item center">
+            {' '}
+            <SyncLoader color="#5DF8D8" />
+          </div>
         ) : tutors.length === 0 ? (
           <div className="flex min-h-[60vh] flex-col items-center justify-center rounded-[32px] border border-white/10 bg-white/5 dark:bg-white/5 backdrop-blur-2xl p-10 text-center shadow-2xl">
             <div className="relative mb-6">
