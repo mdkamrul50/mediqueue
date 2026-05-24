@@ -5,13 +5,17 @@ import React, { useEffect, useState } from 'react';
 import Logo from '@/assets/logo.png';
 import { Button } from '@heroui/react';
 import Link from 'next/link';
-import { authClient } from '@/lib/auth-client';
+import { useSession } from '@/lib/auth-client';
 import { usePathname } from 'next/navigation';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
-  const userInfo = authClient.useSession();
-  const user = userInfo.data?.user;
+
+
+const userInfo = useSession();
+const user = userInfo.data?.user;
+
+  console.log(user);
 
   const pathname = usePathname();
 
