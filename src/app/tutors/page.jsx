@@ -52,6 +52,7 @@ const TutorsPage = () => {
     setIsFiltered(true);
     fetchTutors();
   };
+
   useEffect(() => {
     fetchTutors();
   }, []);
@@ -111,6 +112,7 @@ const TutorsPage = () => {
                   setStartDate('');
                   setEndDate('');
                   setIsFiltered(false);
+                  n;
                   fetchTutors();
                 }}
                 className="mb-6 flex items-center gap-2 font-semibold text-[#0c4a73] transition hover:translate-x-1 dark:text-[#5DF8D8]"
@@ -121,8 +123,6 @@ const TutorsPage = () => {
             </a>
           )}
         </div>
-
-
 
         {loading ? (
           <div className="flex min-h-[300px] items-center justify-center">

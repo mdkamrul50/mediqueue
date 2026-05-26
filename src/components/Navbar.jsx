@@ -5,13 +5,15 @@ import React, { useEffect, useState } from 'react';
 import Logo from '@/assets/logo.png';
 import { Button } from '@heroui/react';
 import Link from 'next/link';
-import { useSession, signOut } from '@/lib/auth-client';
+import { authClient } from '@/lib/auth-client';
 import { usePathname } from 'next/navigation';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
-  const userInfo = useSession();
-  const user = userInfo.data?.user;
+  const session = authClient.useSession();
+
+  const user = session.data?.user;
+
 
   const pathname = usePathname();
 
@@ -19,7 +21,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const handelSignOut = async () => {
-    await signOut();
+    await authClient.signOut();
   };
 
   useEffect(() => {
