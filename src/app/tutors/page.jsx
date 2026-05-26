@@ -1,6 +1,7 @@
 'use client';
 
 import Shape from '@/components/borderShape/Shape';
+import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -47,46 +48,10 @@ const TutorsPage = () => {
     setLoading(false);
   };
 
-  const handleSearch = async () => {
-    await fetchTutors();
-
+  const handleSearch = () => {
     setIsFiltered(true);
-
-    setSearch('');
-    setStartDate('');
-    setEndDate('');
-
-    setLoading(true);
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors`, {
-      cache: 'no-store',
-    });
-
-    const data = await res.json();
-
-    setTutors(data || []);
-    setLoading(false);
+    fetchTutors();
   };
-
-  const handleReset = async () => {
-    setSearch('');
-    setStartDate('');
-    setEndDate('');
-
-    setLoading(true);
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors`, {
-      cache: 'no-store',
-    });
-
-    const data = await res.json();
-
-    setTutors(data || []);
-
-    setLoading(false);
-    setIsFiltered(false);
-  };
-
   useEffect(() => {
     fetchTutors();
   }, []);
@@ -109,8 +74,7 @@ const TutorsPage = () => {
           </p>
         </div>
 
-        <div className="mb-5 grid gap-4 md:grid-cols-4">
-          {/* SEARCH */}
+        <div className="mb-10 grid gap-4 md:grid-cols-4">
           <input
             type="text"
             placeholder="Search tutor..."
@@ -133,24 +97,33 @@ const TutorsPage = () => {
             className="rounded-2xl border border-white/10 bg-white/50 px-4 py-3 outline-none dark:bg-white/5"
           />
 
-          {/* BUTTON */}
           <button
             onClick={handleSearch}
             className="rounded-2xl bg-[#5DF8D8] px-5 py-3 font-bold text-black transition hover:scale-105"
           >
             Search
           </button>
+          {isFiltered && (
+            <a href={'/tutors'}>
+              <button
+                onClick={() => {
+                  setSearch('');
+                  setStartDate('');
+                  setEndDate('');
+                  setIsFiltered(false);
+                  fetchTutors();
+                }}
+                className="mb-6 flex items-center gap-2 font-semibold text-[#0c4a73] transition hover:translate-x-1 dark:text-[#5DF8D8]"
+              >
+                <ArrowLeft size={18} />
+                Go Back
+              </button>
+            </a>
+          )}
         </div>
-        {isFiltered && (
-          <button
-            onClick={handleReset}
-            className="mb-4 rounded-2xl border border-white/10 bg-white/40 px-2 py-2 font-bold text-black transition hover:scale-105 dark:bg-white/5 dark:text-white"
-          >
-            Show All
-          </button>
-        )}
 
-        {/*  LOADING */}
+
+
         {loading ? (
           <div className="flex min-h-[300px] items-center justify-center">
             <div className="h-14 w-14 animate-spin rounded-full border-4 border-[#5DF8D8] border-t-transparent"></div>
@@ -173,7 +146,6 @@ const TutorsPage = () => {
                 key={tutor._id}
                 className="group overflow-hidden rounded-[30px] border border-white/10 bg-white/40 p-4 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:-translate-y-3 dark:bg-white/5"
               >
-                {/* IMAGE */}
                 <div className="relative overflow-hidden rounded-[24px]">
                   <Image
                     src={tutor.image}
@@ -200,7 +172,6 @@ const TutorsPage = () => {
                     </div>
                   </div>
 
-                  {/* SUBJECTS */}
                   <div className="mb-5 flex flex-wrap gap-2">
                     {tutor.subjects?.map((subject, i) => (
                       <span
@@ -212,7 +183,6 @@ const TutorsPage = () => {
                     ))}
                   </div>
 
-                  {/* MODE */}
                   <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
                     <div className="flex items-center gap-3">
                       <FaVideo className="text-[#5DF8D8]" />
@@ -225,7 +195,6 @@ const TutorsPage = () => {
                     </div>
                   </div>
 
-                  {/* BUTTON */}
                   <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
                     <Link href={`/tutors/${tutor._id}`}>
                       <button className="rounded-full bg-[#0c4a73] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-[#5DF8D8] hover:text-black dark:bg-[#5DF8D8] dark:text-black">

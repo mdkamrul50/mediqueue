@@ -3,11 +3,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export const metadata = {
-  title: '404 Not Found | MediQueue',
-  description: 'The page you are looking for does not exist.',
-};
-
 export default function NotFound() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-[#d0e2d5] via-[#e8f3ec] to-[#d0e2d5] px-4 dark:from-[#0F172A] dark:via-[#0B1220] dark:to-[#0F172A]">

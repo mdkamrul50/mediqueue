@@ -11,7 +11,6 @@ const fetchTutors = async () => {
 
   return data || [];
 };
-
 const AvailableTutors = async () => {
   const tutors = await fetchTutors();
 

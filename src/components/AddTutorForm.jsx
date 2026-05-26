@@ -6,16 +6,16 @@ import toast from 'react-hot-toast';
 import { FaRocket } from 'react-icons/fa';
 
 export default function AddTutorForm() {
-    const { data } = authClient.useSession();
-    const user = data?.user;
-
-    console.log(user);
+  const { data } = authClient.useSession();
+  const user = data?.user;
 
   const [form, setForm] = useState({
     name: '',
     image: '',
-    subject: '',
-    time: '',
+    subjects: [],
+    availability: {
+      time: '',
+    },
     fee: '',
     slots: '',
     sessionDate: '',
@@ -26,11 +26,32 @@ export default function AddTutorForm() {
   });
 
   const handleChange = (e) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
 
-    setForm({
-      ...form,
-      [name]: name === 'mode' ? [value] : value,
+    if (name === 'availabilityTime') {
+      setForm((prev) => ({
+        ...prev,
+        availability: {
+          ...prev.availability,
+          time: value,
+        },
+      }));
+
+      return;
+    }
+
+    setForm((prev) => {
+      if (name === 'subjects' || name === 'mode') {
+        return {
+          ...prev,
+          [name]: [value],
+        };
+      }
+
+      return {
+        ...prev,
+        [name]: value,
+      };
     });
   };
 
@@ -58,14 +79,17 @@ export default function AddTutorForm() {
       setForm({
         name: '',
         image: '',
-        subject: '',
-        time: '',
+        subjects: [],
+        availability: {
+          time: '',
+        },
         fee: '',
         slots: '',
         sessionDate: '',
         experience: '',
         location: '',
         mode: [],
+        userId: user?.id,
       });
     } catch (err) {
       toast.error('Server error');
@@ -87,7 +111,7 @@ export default function AddTutorForm() {
           className="input"
         />
         <input
-        required
+          required
           name="image"
           onChange={handleChange}
           placeholder="Image URL"
@@ -101,7 +125,7 @@ export default function AddTutorForm() {
             backgroundColor: '#0F172A',
             color: 'white',
           }}
-          name="subject"
+          name="subjects"
           onChange={handleChange}
           className="input text-white bg-[#0F172A] border border-white/20 focus:border-[#5DF8D8] focus:ring-2 focus:ring-[#5DF8D8]/30"
           required
@@ -133,7 +157,7 @@ export default function AddTutorForm() {
       </div>
 
       <input
-        name="time"
+        name="availabilityTime"
         onChange={handleChange}
         placeholder=" 5:00 PM - 8:00 PM"
         className="input"
