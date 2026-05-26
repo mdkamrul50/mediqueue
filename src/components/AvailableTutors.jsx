@@ -92,7 +92,7 @@ const AvailableTutors = async () => {
                     <p>{tutor.mode.join(', ')}</p>
                   </div>
                 </div>
-                {/* Footer */}{' '}
+              {' '}
                 <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
                   <Link href={`/tutors/${tutor._id}`}>
                     <button className="rounded-full bg-[#0c4a73] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-[#5DF8D8] hover:text-black dark:bg-[#5DF8D8] dark:text-black">
@@ -105,7 +105,7 @@ const AvailableTutors = async () => {
           ))}
         </div>
 
-        {/* Button */}
+        
         <div className="mt-16 flex justify-center">
           <Link href="/tutors">
             <button className="rounded-full bg-[#0c4a73] px-10 py-4 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-[#5DF8D8] hover:text-black dark:bg-[#5DF8D8] dark:text-black">

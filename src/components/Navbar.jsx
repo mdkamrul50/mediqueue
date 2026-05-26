@@ -174,6 +174,7 @@ const Navbar = () => {
               </>
             )}
           </div>
+          
 
           <button
             onClick={() => setIsOpen(!isOpen)}

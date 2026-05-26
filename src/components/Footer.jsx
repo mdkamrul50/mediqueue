@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-4">
         <div>
           <h2 className="text-2xl font-bold">
-            Tutor<span className="text-[#5DF8D8]">Hub</span>
+            medi<span className="text-[#5DF8D8]">Queue</span>
           </h2>
           <p className="mt-4 text-sm text-gray-400 leading-relaxed">
             Find expert tutors, book sessions, and upgrade your skills with
@@ -24,13 +24,10 @@ export default function Footer() {
               <Link href="/tutors">Find Tutors</Link>
             </li>
             <li>
-              <Link href="/subjects">Subjects</Link>
+              <Link href="/">Subjects</Link>
             </li>
             <li>
-              <Link href="/online-classes">Online Classes</Link>
-            </li>
-            <li>
-              <Link href="/pricing">Pricing</Link>
+              <Link href="/tutors">Online Classes</Link>
             </li>
           </ul>
         </div>
@@ -38,9 +35,9 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4 text-[#5DF8D8]">Contact</h3>
           <ul className="space-y-2 text-sm text-gray-300">
-            <li>Email: support@tutorhub.com</li>
-            <li>Phone: +880 1XXX-XXXXXX</li>
-            <li>Khulna, Bangladesh</li>
+            <li>Email: kamrul.dev.web@tutorhub.com</li>
+            <li>Phone: +880 1772237629</li>
+            <li>Barishal, Bangladesh</li>
           </ul>
         </div>
 
@@ -67,7 +64,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-5 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} TutorHub. All rights reserved.
+        © {new Date().getFullYear()} mediQueue. All rights reserved.
       </div>
     </footer>
   );

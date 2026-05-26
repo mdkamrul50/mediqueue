@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { SyncLoader } from 'react-spinners';
 import toast from 'react-hot-toast';
+import ThemeToggle from '@/components/ThemeToggle';
 
 
 
@@ -104,6 +105,7 @@ const handleUpdate = async (e) => {
 
   return (
     <section className="min-h-screen bg-linear-to-br from-[#d0e2d5] via-[#e8f3ec] to-[#d0e2d5] dark:from-[#0F172A] dark:via-[#0B1220] dark:to-[#10192e] text-black dark:text-white p-6">
+      <ThemeToggle />
       <div className="max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}

@@ -1,3 +1,4 @@
+import ThemeToggle from '@/components/ThemeToggle';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import React from 'react';
@@ -36,8 +37,8 @@ const res = await fetch(
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#d0e2d5] via-[#e8f3ec] to-[#d0e2d5] dark:from-[#0F172A] dark:via-[#0B1220] dark:to-[#0F172A] py-20 text-black dark:text-white">
+      <ThemeToggle />
       <div className="container mx-auto px-4">
-        {/* HEADER */}
         <div className="mb-12 flex items-end justify-between">
           <div>
             <h1 className="text-5xl font-extrabold tracking-tight">
@@ -57,7 +58,6 @@ const res = await fetch(
           </div>
         </div>
 
-        {/* TABLE WRAPPER */}
         <div className="rounded-[30px] border border-white/10 bg-white/10 shadow-2xl backdrop-blur-3xl overflow-hidden">
           {/* HEADER ROW */}
           <div className="hidden md:grid grid-cols-4 px-8 py-6 bg-black/10 dark:bg-white/5 text-xs uppercase tracking-widest text-gray-600 dark:text-gray-300">
@@ -67,14 +67,12 @@ const res = await fetch(
             <span>Status</span>
           </div>
 
-          {/* BODY */}
           {data?.length > 0 ? (
             data.map((item) => (
               <div
                 key={item._id}
                 className="group grid md:grid-cols-4 items-center gap-6 px-8 py-6 border-t border-white/10 transition-all duration-300 hover:bg-white/10 dark:hover:bg-white/5 hover:scale-[1.01]"
               >
-                {/* Tutor */}
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#5DF8D8] to-[#2b7667] flex items-center justify-center text-black font-bold shadow-lg">
                     {item.tutorName?.charAt(0)}
@@ -101,7 +99,6 @@ const res = await fetch(
                   {item.email}
                 </div>
 
-                {/* Status */}
                 <div>
                   <span className="inline-flex items-center gap-2 rounded-full bg-green-500/10 px-4 py-2 text-xs font-semibold text-green-400 border border-green-500/20">
                     ● Confirmed

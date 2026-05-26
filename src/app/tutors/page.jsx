@@ -1,6 +1,7 @@
 'use client';
 
 import Shape from '@/components/borderShape/Shape';
+import ThemeToggle from '@/components/ThemeToggle';
 import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -59,6 +60,7 @@ const TutorsPage = () => {
 
   return (
     <section className="relative overflow-hidden bg-[#d0e2d5] py-24 text-black dark:bg-[#062f49] dark:text-white">
+      <ThemeToggle />
       <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-[#5DF8D8]/20 blur-3xl" />
 
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />

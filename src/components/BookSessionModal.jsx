@@ -61,7 +61,7 @@ export function BookSessionModal({ tutor }) {
 
   return (
     <Modal>
-      {/* TRIGGER BUTTON */}
+   
       <Button
         disabled={tutor.slots === 0}
         className={`w-full py-6 rounded-full font-bold shadow-lg transition-all duration-300 active:scale-95
@@ -74,7 +74,7 @@ export function BookSessionModal({ tutor }) {
         {tutor.slots === 0 ? 'This session is fully booked' : 'Book Session'}
       </Button>
 
-      {/* BACKDROP */}
+  
       <Modal.Backdrop className="backdrop-blur-md bg-black/40" variant="blur">
         <Modal.Container>
           <Modal.Dialog className="sm:max-w-[460px] rounded-3xl border border-white/10 bg-white/10 dark:bg-black/30 backdrop-blur-3xl shadow-2xl overflow-hidden">

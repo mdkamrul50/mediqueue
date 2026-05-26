@@ -69,6 +69,7 @@ export default function LoginComponent() {
 
   return (
     <div className="min-h-screen bg-[#0f1524] flex items-center justify-center p-4">
+      
       <div className="max-w-6xl w-full bg-[#3B7597]/50 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden grid md:grid-cols-2 shadow-2xl">
         <div className="relative hidden md:block h-full">
           <Swiper

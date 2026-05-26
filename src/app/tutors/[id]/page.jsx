@@ -1,5 +1,6 @@
 import { BookSessionModal } from '@/components/BookSessionModal';
 import Shape from '@/components/borderShape/Shape';
+import ThemeToggle from '@/components/ThemeToggle';
 import Image from 'next/image';
 import React from 'react';
 import { FaStar, FaClock, FaVideo, FaMapMarkerAlt } from 'react-icons/fa';
@@ -27,6 +28,7 @@ const tutorDetailPage = async ({ params }) => {
 
   return (
     <section className="relative min-h-screen bg-[#d0e2d5] dark:bg-[#0F172A] text-black dark:text-white py-20 overflow-hidden">
+      <ThemeToggle />
       <div className="absolute top-0 left-0 h-96 w-96 bg-[#5DF8D8]/20 blur-[120px] animate-pulse" />
       <div className="absolute bottom-0 right-0 h-96 w-96 bg-blue-500/20 blur-[120px] animate-pulse" />
 

@@ -1,4 +1,5 @@
 import AddTutorForm from '@/components/AddTutorForm';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export const metadata = {
   title: 'Add Tutor | MediQueue',
@@ -8,8 +9,8 @@ export const metadata = {
 export default function AddTutor() {
   return (
     <section className="min-h-screen bg-[#d0e2d5] dark:bg-[#0F172A] text-black dark:text-white py-16 px-4 transition-colors duration-300">
+      <ThemeToggle />
       <div className="max-w-4xl mx-auto">
-        {/* HEADER */}
         <div className="text-center mb-14">
           <h1
             className="text-4xl md:text-5xl font-bold tracking-tight 
@@ -32,7 +33,6 @@ export default function AddTutor() {
           </p>
         </div>
 
-        {/* FORM */}
         <AddTutorForm />
       </div>
     </section>
