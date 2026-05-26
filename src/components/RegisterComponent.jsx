@@ -41,6 +41,8 @@ export default function RegisterComponent() {
       password: registerData.password,
     });
 
+    console.log({ data, error });
+
     if (data) {
       toast.success('Register Successful!');
       router.push('/login');

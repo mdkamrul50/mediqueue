@@ -10,8 +10,10 @@ import { usePathname } from 'next/navigation';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
-  const userInfo = authClient.useSession();
-  const user = userInfo.data?.user;
+  const session = authClient.useSession();
+
+  const user = session.data?.user;
+
 
   const pathname = usePathname();
 
