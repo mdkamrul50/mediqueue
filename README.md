@@ -4,7 +4,7 @@ A modern tutor booking platform where students can find expert tutors, filter tu
 
 ## 🌐 Live Website
 
-https://your-live-site-url.com
+https://mediqueue-two.vercel.app
 
 ---
 
